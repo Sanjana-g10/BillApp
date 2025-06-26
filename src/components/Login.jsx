@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { CgNametag } from "react-icons/cg";
+import { MdOutlineMailOutline } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link, useNavigate } from 'react-router-dom';
 import empServices from '../services/empServices';
@@ -15,7 +15,7 @@ const Login = () => {
     email:""
   })
 
-  let[errorMessage, setErrorMessage]=useState("")
+ 
   const handelChange=e=>{
     let {name,value}=e.target
     
@@ -26,7 +26,7 @@ const Login = () => {
     e.preventDefault()
     let {password,email}=formData
     if(!password||!email){
-      toast.error("All feilds are mandatory")
+      toast.error("All fields are mandatory")
       return
     }
     
@@ -49,16 +49,16 @@ try {
   }
   return (
    <div className='bg-[#efefef] size-full flex justify-center items-center' >
-    <form action="" className='bg-white w-1/2 h-[90%] flex justify-center items-center flex-col gap-8 px-[80px] py-40 rounded-2xl max-sm:w-[90%]	overflow-hidden'>
+    <form action="" className='bg-white w-1/2 h-[90%] flex justify-center items-center flex-col gap-8 px-[80px] py-40 rounded-2xl max-sm:w-[90%]	overflow-hidden' onSubmit={handelSubmit}>
       <div className= 'w-full  flex  justify-center items-center text-3xl font-bold'>
         <h1>Login Form</h1>
         </div>
          <div className='border-2 w-full flex justify-center items-center px-3 rounded-sm'>
-                 <input type="text" name='name'  placeholder='Enter Name'  className='w-full outline-none px-4 h-10 ' />
-                 <CgNametag />
+                 <input type="email" name='email'  placeholder='Enter your Email'  className='w-full outline-none px-4 h-10 ' onChange={handelChange}/>
+                 <MdOutlineMailOutline />
               </div>
                <div className='border-2 w-full flex justify-center items-center px-3 rounded-sm'>
-                       <input type="password"  name='password' placeholder='Enter Password' className='w-full outline-none px-4 h-10'/>
+                       <input type="password"  name='password' placeholder='Enter Password' className='w-full outline-none px-4 h-10' onChange={handelChange}/>
                        <RiLockPasswordLine />
                     </div>
                      <div className='bg-black text-amber-50 w-full  flex  justify-center items-center rounded-sm'>
@@ -72,3 +72,5 @@ try {
 }
 
 export default Login
+
+

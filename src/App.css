@@ -4,3 +4,7 @@
     width: 100wh;
     /* background-color: rebeccapurple; */
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
