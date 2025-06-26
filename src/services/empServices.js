@@ -4,20 +4,20 @@ let empServices={
     regiUser:async(payload)=>{
         try {
        let data=await axiosInstance.post("/register",payload)
-      console.log(data);
+    //   console.log(data);
     return data
         } catch (error) {
-            // console.log(error);
+            console.log(error);
             return error
         }
     },
     loginUser:async(payload)=>{
         try{
             let data = await axiosInstance.post("/login",payload)
-            console.log(data)
+            // console.log(data)
             return data
             }catch(error){
-            // console.log(error);
+            console.log(error);
             return error
             
         }
